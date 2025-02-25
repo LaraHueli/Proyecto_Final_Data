@@ -170,3 +170,4 @@ cython_debug/
 .pypirc
 "data/data_raw/sales.rar" 
 "data/data_raw/sales.csv" 
+"data/data_raw/sales.csv" 
