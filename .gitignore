@@ -169,3 +169,4 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 "data/data_raw/sales.rar" 
+"data/data_raw/sales.csv" 
