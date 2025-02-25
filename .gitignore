@@ -168,3 +168,4 @@ cython_debug/
 #.idea/
 # PyPI configuration file
 .pypirc
+"data/data_raw/sales.rar" 
