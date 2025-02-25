@@ -26,7 +26,10 @@ PENDIENTES HASTA LA COMPLETA VISUALIZACION DE LAS BBDD
   - `employees.csv`
   - `products.csv`
   - `customers.csv`
-  Queda pendiente ver que hacemos con el archivo "sales.csv" debido a su gran tamaño... valoramos un link en lugar de una subida directa.
+  - `sales.csv` pesa demasiado disponible en descarga
+  ## 📂 Descarga de Datos
+- El archivo `sales.csv`: puedes descargarlo desde [Google Drive](https://drive.google.com/file/d/1kjChTjmfu2_TD7GmB4VRy0biWlRjNpdk/view?usp=drive_link).
+
 
 - **.gitignore**: Para evitar subir archivos no deseados al repositorio.
 
