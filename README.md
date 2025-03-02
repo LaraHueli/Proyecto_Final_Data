@@ -17,6 +17,7 @@ PENDIENTES HASTA LA COMPLETA VISUALIZACION DE LAS BBDD
   - **src**: Carpeta para el código fuente de Python que se utilizará para limpiar y transformar los datos.
   - **jupyters**: Carpeta para almacenar notebooks de Jupyter si es necesario para el análisis exploratorio.
   - **venv**: Carpeta para el entorno virtual de Python.
+  - **documentacion**: Archivo de trabajo.
 
 ### Archivos en el Repositorio
 - **data_raw**: Contiene los siguientes archivos CSV con datos sin procesar:
