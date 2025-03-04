@@ -1,6 +1,6 @@
 # Protecto_Final_Data - Análisis de Datos
 
-## Primera Sesion
+## Primera Sesión
 ### Descripción del Proyecto
 Este es un proyecto final donde se trabajará en la transformación, limpieza y análisis de datos. Mi enfoque es hacer una **ETL** (extracción, transformación y carga) utilizando **Python** para la limpieza y transformación de los datos, y luego realizar el análisis y la visualización utilizando **Power BI**.
 
@@ -44,7 +44,7 @@ El proyecto sigue la siguiente organización de carpetas y archivos:
 `README.md` → Documento con la descripción del proyecto  
 `requirements.txt` → Lista de librerías necesarias  
 
-## Segunda Sesion
+## Segunda Sesión
 ### ETL - Preeliminar
 
 En esta segunda sesión, se procederá a la lectura y exploración de los archivos **uno por uno** con el objetivo de:
@@ -52,7 +52,7 @@ En esta segunda sesión, se procederá a la lectura y exploración de los archiv
 - Identificar posibles transformaciones necesarias para la limpieza y normalización de datos.
 - Evaluar la calidad de los datos, incluyendo tipos de variables, valores nulos y posibles inconsistencias.
 
-### 🚀 **Exploración Inicial del Dataset `categories.csv`**
+###  **Exploración Inicial del Dataset `categories.csv`**
 Se ha realizado una primera exploración del archivo `categories.csv` para entender su estructura y verificar la necesidad de limpieza o transformaciones.
  **Información general:**
 - **Número de columnas:** 2 (`CategoryID`, `CategoryName`).
@@ -65,7 +65,7 @@ Se ha realizado una primera exploración del archivo `categories.csv` para enten
 El dataset está limpio y no requiere tratamiento de valores nulos. Solo se aplicarán **transformaciones en los nombres de las columnas** para mejorar la legibilidad y estandarización.
 
 
-### 🚀 **Exploración Inicial del Dataset `cities.csv`**
+### **Exploración Inicial del Dataset `cities.csv`**
 Se ha realizado una primera exploración del archivo `cities.csv` para entender su estructura y verificar la necesidad de limpieza o transformaciones.
 **Información general:**  
 - **Número de columnas:** 4 (`CityID`, `CityName`, `Zipcode`, `CountryID`).  
@@ -80,7 +80,7 @@ Se ha realizado una primera exploración del archivo `cities.csv` para entender 
 El dataset está **completo y sin valores nulos**, pero se aplicarán algunas **transformaciones de limpieza**
 
 
-### 🚀 **Exploración Inicial del Dataset `countries.csv`**
+### **Exploración Inicial del Dataset `countries.csv`**
 Se ha realizado una primera exploración del archivo `countries.csv` para entender su estructura y verificar la necesidad de limpieza o transformaciones.
 **Información general:**  
 - **Número de columnas:** 3 (`CountryID`, `CountryName`, `CountryCode`).  
@@ -93,7 +93,7 @@ Se ha realizado una primera exploración del archivo `countries.csv` para entend
 ✅ **Conclusión y Acciones de Limpieza:**  El dataset **está casi completo**, pero se realizarán algunas **transformaciones** para mejorar su estructura. 
 
 
-### 🚀 **Exploración Inicial del Dataset `customers.csv`**
+### **Exploración Inicial del Dataset `customers.csv`**
 Se ha realizado una primera exploración del archivo `customers.csv` para entender su estructura y verificar la necesidad de limpieza o transformaciones.
  **Información general:**  
 - **Número de columnas:** 6 (`CustomerID`, `FirstName`, `MiddleInitial`, `LastName`, `CityID`, `Address`).  
@@ -109,7 +109,7 @@ Se ha realizado una primera exploración del archivo `customers.csv` para entend
 ✅ **Conclusión y Acciones de Limpieza:**  El dataset **está casi completo**, pero se realizarán algunas **transformaciones** para mejorar su estructura:  
 
 
-# 🚀 **Exploración Inicial del Dataset `employees.csv`**
+###  **Exploración Inicial del Dataset `employees.csv`**
 Se ha realizado una primera exploración del archivo `employees.csv` para entender su estructura y verificar la necesidad de limpieza o transformaciones.
 **Información general:**  
 - **Número de columnas:** 8 (`EmployeeID`, `FirstName`, `MiddleInitial`, `LastName`, `BirthDate`, `Gender`, `CityID`, `HireDate`).  
@@ -126,7 +126,7 @@ Se ha realizado una primera exploración del archivo `employees.csv` para entend
 - **Valores nulos:**  No se han encontrado valores nulos en ninguna columna.  
 ✅ **Conclusión y Acciones de Limpieza:**  El dataset **está completo y sin valores nulos**, pero se realizarán algunas **transformaciones** para mejorar su estructura y facilitar su análisis:  
 
-# 🚀 **Exploración Inicial del Dataset `products.csv`**
+### **Exploración Inicial del Dataset `products.csv`**
 Se ha realizado una primera exploración del archivo `products.csv` para entender su estructura y verificar la necesidad de limpieza o transformaciones.
 **Información general:**  
 - **Número de columnas:** 9 (`ProductID`, `ProductName`, `Price`, `CategoryID`, `Class`, `ModifyDate`, `Resistant`, `IsAllergic`, `VitalityDays`).  
@@ -144,7 +144,7 @@ Se ha realizado una primera exploración del archivo `products.csv` para entende
 - **Valores nulos:** No se han encontrado valores nulos, pero las columnas `Resistant` e `IsAllergic` contienen valores `"Unknown"` que podrían requerir tratamiento.  
 ✅ **Conclusión y Acciones de Limpieza:**  El dataset **está completo**, pero se realizarán algunas **transformaciones** para mejorar su estructura:  
 
-# 🚀 **Exploración Inicial del Dataset `sales.csv`**
+### **Exploración Inicial del Dataset `sales.csv`**
 Se ha realizado una primera exploración del archivo `sales.csv` para entender su estructura y verificar la necesidad de limpieza o transformaciones.
 **Información general:**  
 - **Número de columnas:** 9 (`SalesID`, `SalesPersonID`, `CustomerID`, `ProductID`, `Quantity`, `Discount`, `TotalPrice`, `SalesDate`, `TransactionNumber`).  
@@ -181,17 +181,68 @@ En esta tercera sesión, se procederá a la limpieza y transformación de los ar
 - Se guardó el dataset limpio en `data_limpios/`.  
 
 #### countries.csv:
-- Se limpiaron los nombres de columnas → Country_Id, Country_Name, Country_Code
-- Se verificaron duplicados en CountryID, CountryName y CountryCode
-- Se normalizaron los nombres de los países (eliminando espacios y pasando a minúsculas)
-- Se identificó un valor nulo en CountryCode para Australia, pero no se modificó por el momento
-- Se guardó el dataset limpio en data_limpios/
+- Se limpiaron los nombres de columnas → `Country_Id`, `Country_Name`, `Country_Code`.
+- Se verificaron duplicados en `Country_Id`, `Country_Name` y `Country_Code`.
+- Se normalizaron los nombres de los países (eliminando espacios y pasando a minúsculas).
+- Se identificó un valor nulo en `Country_Code` para Australia, pero no se modificó por el momento.
+- Se guardó el dataset limpio en `data_limpios/`.
 
 #### customers.csv:
-- Se eliminó la columna MiddleInitial porque no aportaba valor
-- Se limpiaron los nombres de columnas → Customer_Id, First_Name, Last_Name, City_Id, Address
-- Se concatenaron las columnas First_Name y Last_Name en Full_Name y se eliminó First_Name y Last_Name
-- Se guardó el dataset limpio en data_limpios/
+- Se eliminó la columna `MiddleInitial` porque no aportaba valor.
+- Se limpiaron los nombres de columnas → `Customer_Id`, `First_Name`, `Last_Name`, `City_Id`, `Address`.
+- Se concatenaron las columnas `First_Name` y `Last_Name` en `Full_Name`, eliminando las originales.
+- Se guardó el dataset limpio en `data_limpios/`.
+
+
+#### employees.csv:
+- Se eliminó la columna `MiddleInitial` porque no aportaba valor.
+- Se limpiaron los nombres de columnas → `Employee_Id`, `Full_Name`, `Birth_Date`, `Gender`, `City_Id`, `Hire_Date`.
+- Se concatenaron las columnas `First_Name` y `Last_Name` en `Full_Name`, eliminando las originales.
+- Se convirtieron las fechas `BirthDate` y `HireDate` a formato `YYYY-MM-DD`.
+- Se calculó la edad (`Age`) a partir de `BirthDate`.
+- Se calculó la antigüedad (`YearsInCompany`) a partir de `HireDate`.
+- Se guardó el dataset limpio en `data_limpios/`.
+**Análisis de `describe()`**
+- **Edad (`Age`)**:Rango de edad: 36 a 74 años. Promedio: 57 años. El 50% de los empleados tienen entre 51 y 63 años.
+- **Años en la empresa (`YearsInCompany`)**: Rango: 8 a 15 años. Promedio: 11.8 años. El 50% de los empleados tienen entre 10.5 y 14 años en la empresa.
+**Conclusiones:**
+- La empresa tiene una plantilla mayormente **senior**, con edades promedio de 57 años.
+- La mayoría de los empleados tienen más de 10 años de antigüedad, lo que sugiere una buena retención laboral.
+- Se recomienda analizar la distribución de edades en Power BI para evaluar la planificación de talento y sucesión.
+
+#### products.csv:
+- Se limpiaron los nombres de columnas con `limpiar_nombres_columnas()`, manteniendo el contenido original.  
+- Se convirtió la columna `Modify_Date` a formato `YYYY-MM-DD`.  
+- Se reemplazó `"Unknown"` por `"Unspecified"` en `Resistant` e `Is_Allergic` para facilitar el análisis en Power BI.  
+- Se convirtió `Vitality_Days` de `float` a `int`.  
+- Se analizaron los valores con `describe()` y se identificaron posibles valores extremos en `Price` y `Vitality_Days`.  
+- Se generaron gráficos (histograma y boxplot) para evaluar su distribución y detectar outliers.  
+- Se analizaron los productos con `Vitality_Days = 0`, identificando sus categorías y clases. 
+- Se guardó el dataset limpio en `data_limpios/`. 
+**Análisis de `describe()`**  
+- **Price**: Rango de valores entre 0.0449 y 99.87. Distribución normal sin valores extremos preocupantes.  
+- **Vitality_Days**: Rango de 0 a 120 días. Se detectaron valores en 0, analizados por categoría y clase.  
+**Conclusiones:**  
+- La mayoría de los productos con `Vitality_Days = 0` pertenecen a clases `Medium` y `High`, con categorías diversas.  
+- No se detectaron valores atípicos en `Price`, por lo que no se realizaron modificaciones.  
+- Se recomienda analizar en Power BI la distribución de `Vitality_Days` y su relación con las categorías de productos.  
+
+#### **sales.csv:**
+- Se verificaron los valores nulos en la columna `SalesDate` y se decidió eliminar los valores nulos (1%) para mantener la consistencia de los datos.
+- Se limpiaron los nombres de columnas con `limpiar_nombres_columnas()`, estandarizando los nombres de las columnas.
+- Se separaron las fechas en dos nuevas columnas: `Day_Sales` (con solo la fecha) y `Hour_Sales` (con solo la hora) para facilitar su análisis en Power BI.
+- Se determinó que las columnas `SalesID` y `Transaction_Number` eran redundantes, por lo que se eliminó `Transaction_Number`.
+- Se analizó el dataset con `describe()` y se encontraron valores típicos en las columnas como `Quantity` y `SalesID`.
+- Se guardó el dataset limpio en `data_limpios/`.
+**Análisis de `describe()`**
+- **SalesID**: Rango de valores entre 1 y 6758125.
+- **TotalPrice**: Todos los valores son 0, no se realizaron modificaciones.
+- **Quantity**: Valores típicos de productos vendidos entre 7 y 25.
+**Conclusiones:**
+- Se eliminaron los valores nulos de `SalesDate` para asegurar la consistencia del dataset.
+- Los nombres de las columnas fueron estandarizados.
+- La separación de las fechas en `Day_Sales` y `Hour_Sales` permite explorar más fácilmente las tendencias de ventas por hora en Power BI.
+- Se eliminó `Transaction_Number` ya que era redundante con `SalesID`.
 
 
 #### Script de limpieza:
@@ -199,7 +250,17 @@ Se creó el script sp_limpieza.py en la carpeta src, con las siguientes funcione
 - Limpiar_nombres_columnas(df): Normaliza los nombres de las columnas eliminando espacios, caracteres especiales y aplicando formato estandarizado.
 - Valores_unicos(df): Muestra los valores únicos de cada columna del DataFrame.
 - Concatenar_nombres(df): Concatena First_Name y Last_Name en Full_Name, posicionándola después de Customer_Id y eliminando las columnas originales.
+- limpiar_fechas(df): Para eliminar la horas de la fechas y dejar solo formato fecha
+- calcular_edad (df): Partiendo de la fecha de nacimiento sacamos la edad actual
+- años_trabajados (df): partiendo de la fecha de contratacion sacamos los años trabajados.
+- convertir_a_entero (df): Convierte un numero float a int.
+- separar_fecha_hora (df) : partiendo de la fecha de compra, sacamos dia y hora.
 
+
+#### Script de visualizacion:
+Se creó el script sp_visualizacion.py en la carpeta src, con las siguientes funciones:
+- graficar_histograma (df): Genera un histograma para visualizar la distribución de una variable.
+- graficar_boxplot(df): Genera un boxplot para identificar outliers.
 
 
 ## **Tareas Pendientes**
