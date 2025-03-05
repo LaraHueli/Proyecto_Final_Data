@@ -263,9 +263,62 @@ Se creó el script sp_visualizacion.py en la carpeta src, con las siguientes fun
 - graficar_boxplot(df): Genera un boxplot para identificar outliers.
 
 
+
+## Cuarta Sesión
+# Power BI  
+
+Este documento detalla todos los pasos realizados en **Power BI** hasta el momento, desde la carga de datos hasta la optimización del modelo y las tablas.  
+
+##  Fase 1: Carga de Datos  
+**Importación de Datos**  
+- Se importaron los archivos **limpios** desde la carpeta `data_limpios/` a Power BI.  
+- Se verificó la estructura y calidad de los datos antes de proceder a modelarlos.  
+
+##  Fase 2: Transformación del Modelo de Datos  
+**Conversión de Copo de Nieve a Modelo Estrella**  
+- Se estableció `sales_clean` como la **tabla de hechos** y el resto como **tablas de dimensión**.  
+- Se corrigieron y crearon **relaciones 1:* (uno a muchos)** para optimizar la estructura.  
+- Se realizaron **agregaciones y combinaciones de consultas** en Power Query para mejorar el modelo.  
+**Agrupación y Combinación de Consultas**  
+- **`customers_clean`** se combinó con **`cities_clean`** a través de `City_Id` para simplificar la estructura.  
+- **Deshabilitación de carga de tablas combinadas** para reducir el peso del modelo y mejorar la eficiencia.  
+- **Renombre de `Sales_Person_Id` a `Employee_Id`** para estandarizar el modelo y corregir relaciones.  
+
+##  Fase 3: Optimización y Reorganización de Tablas  
+✅ **Limpieza y Optimización de `sales_clean`**  
+- **`Discount`** convertido a decimal y multiplicado por 100 para representarlo como porcentaje.  
+- **Eliminación de columnas innecesarias:**  
+  - ❌ `Hour_Full` (ya tenemos `Hour_Sales`).  
+  - ❌ `Total_Price` (siempre estaba en 0).  
+- **Reorganización de columnas** para mejorar la interpretación de los datos.  
+✅ **Limpieza y Optimización de `products_clean`**  
+- **Corrección del formato de precios** → Volvimos a **Python** para verificar y corregir valores.  
+- **Confirmación de que podemos calcular `Total_Ventas` en Power BI** con:  
+  ```DAX
+  Total_Ventas = SUMX(sales_clean, sales_clean[Quantity] * RELATED(products_clean[Price]))
+✅ **Limpieza y Optimización de `employees_clean`**
+- **Reorganización de columnas** para mejorar la interpretación de los datos.   
+**Corrección de Tipos de Datos**  
+- `Employee_Id`, `City_Id`, `Years_Worked`, `Age` → **Numérico (entero)**.  
+- `Full_Name`, `Gender`, `Work_Category` → **Texto**.  
+- `Birth_Date`, `Hire_Date` → **Fecha**.  
+**Renombre de Columnas**: `Edad` → **`Age`**. `Años Trabajados` → **`Years_Worked`**. `Categoría Laboral` → **`Work_Category`**.  
+**Nueva Columna: `Work_Category`** : Clasificación de empleados según `Years_Worked`:  
+- 🟢 **Junior** → ≤5 años.  
+- 🔵 **Mid-Level** → 6-10 años.  
+- 🔴 **Senior** → >10 años.  
+**Método de Creación:**  
+- Se utilizó una **columna condicional en Power Query** basada en `Years_Worked`.  
+
+---
+
+🚀 **`employees_clean` ahora está optimizada y lista para el análisis en Power BI.**  
+💡 **¿Avanzamos con las métricas en DAX?** 😊📊  
+
+
+
+
 ## **Tareas Pendientes**
-Completar el proceso de **ETL** utilizando **Python**.
-Crear un **modelo estrella** en **Power BI** para facilitar el análisis.
 Implementar y validar el **flujo de trabajo de visualización de datos** en **Power BI**.
 
 ---
