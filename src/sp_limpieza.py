@@ -136,7 +136,7 @@ def separar_fecha_hora(df, columna_fecha):
     """
     Separa una columna de fecha en tres nuevas columnas:
     - 'Day_Sales' con la fecha (YYYY-MM-DD).
-    - 'Hour_Full' con la hora completa (HH:MM:SS).
+    - 'Hour_Full' con la hora completa (HH:MM:SS) en formato string.
     - 'Hour_Sales' con solo la hora en formato numérico (0-23).
 
     Parámetros:
@@ -150,7 +150,7 @@ def separar_fecha_hora(df, columna_fecha):
 
     # Crear nuevas columnas
     df["Day_Sales"] = df[columna_fecha].dt.date  # Solo fecha
-    df["Hour_Full"] = df[columna_fecha].dt.time  # Hora completa HH:MM:SS
+    df["Hour_Full"] = df[columna_fecha].dt.strftime("%H:%M:%S")  # Hora en formato HH:MM:SS
     df["Hour_Sales"] = df[columna_fecha].dt.hour  # Solo la hora numérica (int)
 
     return df
