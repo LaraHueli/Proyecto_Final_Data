@@ -268,23 +268,34 @@ Se creó el script sp_visualizacion.py en la carpeta src, con las siguientes fun
 # Power BI  
 
 Este documento detalla todos los pasos realizados en **Power BI** hasta el momento, desde la carga de datos hasta la optimización del modelo y las tablas.  
-
-##  Fase 1: Carga de Datos  
-**Importación de Datos**  
+## Fase 1: Carga de Datos  
+### **Importación de Datos**  
 - Se importaron los archivos **limpios** desde la carpeta `data_limpios/` a Power BI.  
 - Se verificó la estructura y calidad de los datos antes de proceder a modelarlos.  
 
-##  Fase 2: Transformación del Modelo de Datos  
-**Conversión de Copo de Nieve a Modelo Estrella**  
+## Fase 2: Transformación del Modelo de Datos  
+### **Conversión de Copo de Nieve a Modelo Estrella**  
 - Se estableció `sales_clean` como la **tabla de hechos** y el resto como **tablas de dimensión**.  
 - Se corrigieron y crearon **relaciones 1:* (uno a muchos)** para optimizar la estructura.  
 - Se realizaron **agregaciones y combinaciones de consultas** en Power Query para mejorar el modelo.  
-**Agrupación y Combinación de Consultas**  
+#### **Agrupación y Combinación de Consultas**  
 - **`customers_clean`** se combinó con **`cities_clean`** a través de `City_Id` para simplificar la estructura.  
-- **Deshabilitación de carga de tablas combinadas** para reducir el peso del modelo y mejorar la eficiencia.  
-- **Renombre de `Sales_Person_Id` a `Employee_Id`** para estandarizar el modelo y corregir relaciones.  
+- **`products_clean`** se combinó con **`categories_clean`** a través de `Category_Id` para reducir el número de tablas en el modelo.  
+- **Deshabilitación de carga de `cities_clean` y `categories_clean`** para mejorar la eficiencia del modelo.  
+- **Corrección en `cities_clean` en Python**, donde se restauró una columna eliminada por error.  
+- **Revisión y ajuste de tipos de datos en todas las tablas** en Power Query.  
 
-##  Fase 3: Optimización y Reorganización de Tablas  
+## Fase 3: Relaciones en Power BI  
+### **Relaciones Establecidas en el Modelo Estrella**  
+ **Tabla de Hechos (`sales_clean`)**  
+- Se conecta con `products_clean` mediante **`Product_Id`**.  
+- Se conecta con `employees_clean` mediante **`Employee_Id`** *(anteriormente `Sales_Person_Id`)*.  
+- Se conecta con `customers_clean` mediante **`Customer_Id`**.  
+ **Dimensiones con Relaciones Internas**  
+- `customers_clean` incluye información de `cities_clean` (ciudad y código postal).  
+- `products_clean` incluye información de `categories_clean` (nombre de categoría).  
+
+## Fase 4: Optimización y Preparación para Visualización   
 ✅ **Limpieza y Optimización de `sales_clean`**  
 - **`Discount`** convertido a decimal y multiplicado por 100 para representarlo como porcentaje.  
 - **Eliminación de columnas innecesarias:**  
@@ -317,6 +328,12 @@ Este documento detalla todos los pasos realizados en **Power BI** hasta el momen
 
 
 
+## 🔜 Próximos Pasos  
+- **Creación de métricas DAX** para KPIs clave.  
+- **Diseño de dashboards y visualizaciones**.  
+- **Optimización de medidas para rendimiento en Power BI**.  
+
+🚀 **Modelo optimizado y listo para visualización en Power BI.**  
 
 ## **Tareas Pendientes**
 Implementar y validar el **flujo de trabajo de visualización de datos** en **Power BI**.
