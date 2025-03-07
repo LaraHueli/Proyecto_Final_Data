@@ -302,11 +302,13 @@ Este documento detalla todos los pasos realizados en **Power BI** hasta el momen
   - ❌ `Hour_Full` (ya tenemos `Hour_Sales`).  
   - ❌ `Total_Price` (siempre estaba en 0).  
 - **Reorganización de columnas** para mejorar la interpretación de los datos.  
+
 ✅ **Limpieza y Optimización de `products_clean`**  
 - **Corrección del formato de precios** → Volvimos a **Python** para verificar y corregir valores.  
 - **Confirmación de que podemos calcular `Total_Ventas` en Power BI** con:  
   ```DAX
   Total_Ventas = SUMX(sales_clean, sales_clean[Quantity] * RELATED(products_clean[Price]))
+
 ✅ **Limpieza y Optimización de `employees_clean`**
 - **Reorganización de columnas** para mejorar la interpretación de los datos.   
 **Corrección de Tipos de Datos**  
@@ -321,22 +323,61 @@ Este documento detalla todos los pasos realizados en **Power BI** hasta el momen
 **Método de Creación:**  
 - Se utilizó una **columna condicional en Power Query** basada en `Years_Worked`.  
 
+# ✅ Limpieza y Optimización de `customers_clean`
+- **Unión de `customers` con `cities` y `countries`** usando `City_Id` para traer el nombre de la ciudad y el país.  
+- **Eliminación de columnas innecesarias:**  
+  - ❌ `City_Id` (porque ya tenemos el nombre de la ciudad).  
+  - ❌ `Country_Id` (porque ya tenemos el nombre del país).  
+- **Reorganización de columnas** para mejorar la interpretación de los datos.  
 ---
 
-🚀 **`employees_clean` ahora está optimizada y lista para el análisis en Power BI.**  
-💡 **¿Avanzamos con las métricas en DAX?** 😊📊  
+🔧 Creación de Medidas en Power BI
 
+Para realizar el análisis en Power BI, creamos las siguientes medidas en DAX:
+
+✅ Total Sales: Total Sales = SUM(sales[Total_Price_Calculated])✅ Total Sales Volume: Total Sales Volume = SUM(sales[Quantity])✅ Precio Promedio de Venta: Average Selling Price = AVERAGE(sales[Unit_Price])✅ Variación de Precio de Venta: Price Variation = MAX(sales[Unit_Price]) - MIN(sales[Unit_Price])
+
+⚠️ Se eliminó la métrica de Average Discount, ya que no aportaba valor al análisis.
+
+📊 Creación de la Primera Hoja de Análisis: Ventas y Rentabilidad
+
+Se diseñó una primera página en Power BI enfocada en evaluar el volumen de ventas y la rentabilidad de los productos.
+
+📌 Análisis realizado:
+
+1️⃣ Total de Productos Vendidos (87 millones) y Ventas Totales ($4.02 billones)
+
+Se ha vendido un volumen alto de productos, lo que indica una alta demanda.
+
+Falta contexto temporal para saber si las ventas están creciendo o son estables.
+
+2️⃣ Variación de Precio de Venta ($99.83 mil) y Precio Promedio de Venta ($46.3 mil)
+
+Hay una gran diferencia entre el precio mínimo y máximo de los productos vendidos.
+
+Esto sugiere la presencia de productos premium y económicos.
+
+3️⃣ Productos Más Vendidos (Ranking por cantidad de unidades vendidas)
+
+Los productos con mayor demanda son Longos - Chicken Wings y Yoghurt Tubes.
+
+Tener alta demanda no significa que sean los más rentables.
+
+4️⃣ Productos con Mayor Ingreso (Ranking por ventas totales en dólares)
+
+Apricots - Dried y Yoghurt Tubes generan los mayores ingresos.
+
+Algunos productos con menos unidades vendidas tienen precios altos y generan más ingresos.
+
+📌 Conclusiones iniciales:
+
+🔹 Es importante analizar la rentabilidad de los productos más vendidos, ya que vender más unidades no siempre genera más ingresos.🔹 Los productos premium (precios altos) pueden representar una parte significativa del ingreso total.🔹 Se podría analizar si los productos más vendidos tienen márgenes de ganancia altos o ajustados.
 
 
 ## 🔜 Próximos Pasos  
 - **Creación de métricas DAX** para KPIs clave.  
 - **Diseño de dashboards y visualizaciones**.  
 - **Optimización de medidas para rendimiento en Power BI**.  
-
-🚀 **Modelo optimizado y listo para visualización en Power BI.**  
-
-## **Tareas Pendientes**
-Implementar y validar el **flujo de trabajo de visualización de datos** en **Power BI**.
 
 ---
 
