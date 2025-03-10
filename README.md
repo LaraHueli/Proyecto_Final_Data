@@ -265,7 +265,7 @@ Se creó el script sp_visualizacion.py en la carpeta src, con las siguientes fun
 
 
 ## Cuarta Sesión
-# Power BI  
+### Power BI  
 
 Este documento detalla todos los pasos realizados en **Power BI** hasta el momento, desde la carga de datos hasta la optimización del modelo y las tablas.  
 ## Fase 1: Carga de Datos  
@@ -330,56 +330,93 @@ Este documento detalla todos los pasos realizados en **Power BI** hasta el momen
   - ❌ `Country_Id` (porque ya tenemos el nombre del país).  
 - **Reorganización de columnas** para mejorar la interpretación de los datos.  
 ---
+## Quinta Sesión
+### Power BI  
 
-🔧 Creación de Medidas en Power BI
+## Hoja 1: Ventas / Rentabilidad  
+### Análisis Realizado  
+ **Total de Productos Vendidos (87 millones) y Ventas Totales ($4.02 billones)**  
+   - Se ha vendido un volumen alto de productos, lo que indica una **alta demanda**.  
+   - Falta contexto temporal para saber si las ventas **están creciendo o son estables**.  
+ **Variación de Precio de Venta ($99.83 mil) y Precio Promedio de Venta ($46.3 mil)**  
+   - Existen **diferencias significativas** entre los productos más baratos y más caros.  
+   - Se identificó la presencia de productos **premium y económicos**, lo que sugiere una segmentación de precios en el mercado.  
+ **Productos Más Vendidos (Ranking por cantidad de unidades vendidas)**  
+   - Los productos con mayor demanda son **Longos - Chicken Wings y Yoghurt Tubes**.  
+   - Sin embargo, **tener alta demanda no significa que sean los más rentables**.  
+ **Productos con Mayor Ingreso (Ranking por ventas totales en dólares)**  
+   - **Apricots - Dried y Yoghurt Tubes** generan los mayores ingresos.  
+   - Algunos productos con menos unidades vendidas **tienen precios altos y generan más ingresos**.  
+###  Hallazgos Clave  
+**Diferenciar entre volumen de ventas e ingresos es clave para definir estrategias comerciales.**  
+**Se necesita analizar márgenes de ganancia por producto para identificar oportunidades de optimización.**  
+**Es importante considerar descuentos y promociones estratégicas para mejorar rentabilidad.**  
+---
 
-Para realizar el análisis en Power BI, creamos las siguientes medidas en DAX:
+##  Hoja 2: Categoría / Producto  
+### Análisis Realizado  
+ **Ventas Totales por Categoría**  
+   - **Confections y Meat** son las categorías con mayores ingresos, con más de **$500M cada una**.  
+   - Las categorías **Grain y Shell Fish** tienen los ingresos más bajos.  
+ **Ventas Totales por Producto**  
+   - El producto con mayor facturación es **Beef - Texas Style Burger ($17.65B)**.  
+   - Se destacan productos con precios altos, como **Chestnuts - Whole, Canned y Eggplant - Asian**.  
+**Comparación de Precio Unitario vs Total Price**  
+   - Algunos productos de precio alto generan más ingresos a pesar de venderse en menor volumen.  
+   - Se detectó una **fuerte relación entre el precio unitario y la rentabilidad total** de ciertos productos premium.  
+###  Hallazgos Clave  
+**No siempre los productos con mayor volumen de ventas son los más rentables.**  
+**Se recomienda analizar márgenes de ganancia por categoría para optimizar la rentabilidad.**  
+**Podría ser útil estudiar estrategias de precios dinámicos para mejorar ingresos.**  
+---
 
-✅ Total Sales: Total Sales = SUM(sales[Total_Price_Calculated])✅ Total Sales Volume: Total Sales Volume = SUM(sales[Quantity])✅ Precio Promedio de Venta: Average Selling Price = AVERAGE(sales[Unit_Price])✅ Variación de Precio de Venta: Price Variation = MAX(sales[Unit_Price]) - MIN(sales[Unit_Price])
+## Hoja 3: Clientes  
+###  Análisis Realizado  
+**Total Clientes: 98.76 mil** → Mercado amplio, pero falta evaluar retención y recurrencia.  
+**Clientes VIP (17.2%)** → Representan **76.42% de las compras**, mostrando su alto valor.  
+**Frecuencia de Compra** → Mayoría de clientes son **Ocasionales (≤ 50 compras)**, mientras que pocos superan **80 compras**.  
+**Distribución Geográfica** → Alta concentración en **Norteamérica, Europa y Oceanía**, con baja presencia en África y Sudamérica.  
+**El 80/20 del negocio:** La mayor parte de las ventas proviene de un grupo reducido de clientes.  
+**Desafío:** Mantener y expandir la base de clientes VIP sin descuidar el crecimiento de los clientes ocasionales.  
+### Hallazgos Clave  
+ **Los clientes VIP generan la mayor parte del ingreso** → Se deben fidelizar con estrategias exclusivas.  
+ **El segmento de menor consumo es una oportunidad** → Se pueden incentivar compras recurrentes con promociones.  
+ **Análisis geográfico** → Evaluar si la baja presencia en ciertas regiones es una limitación o una oportunidad de expansión.  isis geográfico puede ayudar a definir estrategias de crecimiento en ubicaciones estratégicas.**  
+---
 
-⚠️ Se eliminó la métrica de Average Discount, ya que no aportaba valor al análisis.
+## Organización de Medidas en Power BI  
+Para mejorar la accesibilidad dentro de Power BI, las medidas fueron organizadas en **subcarpetas**:  
+ **Clientes**  
+   - **Clientes con más compras**  
+   - **Frecuencia de Compra**  
+   - **Segmentación de Clientes**  
+   - **Distribución Geográfica**  
+ **Ventas y Rentabilidad**  
+   - **Total de Ventas**  
+   - **Cantidad de Productos Vendidos**  
+   - **Precio Promedio de Venta**  
+   - **Variación de Precio de Venta**  
+   - **Producto Más Caro / Más Barato**  
+ **Desempeño por Categoría y Producto**  
+   - **Ventas por Categoría**  
+   - **Ventas por Producto**  
+   - **Comparación de Precio Unitario vs Total Price**  
 
-📊 Creación de la Primera Hoja de Análisis: Ventas y Rentabilidad
-
-Se diseñó una primera página en Power BI enfocada en evaluar el volumen de ventas y la rentabilidad de los productos.
-
-📌 Análisis realizado:
-
-1️⃣ Total de Productos Vendidos (87 millones) y Ventas Totales ($4.02 billones)
-
-Se ha vendido un volumen alto de productos, lo que indica una alta demanda.
-
-Falta contexto temporal para saber si las ventas están creciendo o son estables.
-
-2️⃣ Variación de Precio de Venta ($99.83 mil) y Precio Promedio de Venta ($46.3 mil)
-
-Hay una gran diferencia entre el precio mínimo y máximo de los productos vendidos.
-
-Esto sugiere la presencia de productos premium y económicos.
-
-3️⃣ Productos Más Vendidos (Ranking por cantidad de unidades vendidas)
-
-Los productos con mayor demanda son Longos - Chicken Wings y Yoghurt Tubes.
-
-Tener alta demanda no significa que sean los más rentables.
-
-4️⃣ Productos con Mayor Ingreso (Ranking por ventas totales en dólares)
-
-Apricots - Dried y Yoghurt Tubes generan los mayores ingresos.
-
-Algunos productos con menos unidades vendidas tienen precios altos y generan más ingresos.
-
-📌 Conclusiones iniciales:
-
-🔹 Es importante analizar la rentabilidad de los productos más vendidos, ya que vender más unidades no siempre genera más ingresos.🔹 Los productos premium (precios altos) pueden representar una parte significativa del ingreso total.🔹 Se podría analizar si los productos más vendidos tienen márgenes de ganancia altos o ajustados.
-
-
-## 🔜 Próximos Pasos  
-- **Creación de métricas DAX** para KPIs clave.  
-- **Diseño de dashboards y visualizaciones**.  
-- **Optimización de medidas para rendimiento en Power BI**.  
+📌 **Beneficios de la Organización**  
+🔹 **Permite una búsqueda rápida y eficiente de medidas en Power BI.**  
+🔹 **Reduce el desorden en el modelo de datos y mejora la estructura del análisis.**  
 
 ---
 
-**Este proyecto está en curso**, y se espera que las próximas fases se centren en la implementación de la **ETL** y en el **análisis con Power BI**. 🚀📊
+## 🔜 Próximos Pasos  
+📌 **Optimización del dashboard para mejorar la experiencia visual.**  
+📌 **Análisis de la rentabilidad de clientes y estrategias de fidelización.**  
+📌 **Incorporación de filtros dinámicos para segmentación más detallada.**  
 
+🔎 **Estado del Proyecto:**  
+✅ **ETL completada en Power Query (Limpieza y Transformación).**  
+✅ **Modelo de Datos estructurado con relaciones correctas.**  
+✅ **Medidas organizadas en subcarpetas para mejor accesibilidad.**  
+📊 **Dashboards en desarrollo con métricas clave.**  
+
+🚀 **Próxima fase: Optimización del análisis de clientes y presentación final en Power BI.**  
