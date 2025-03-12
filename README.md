@@ -39,10 +39,11 @@ El proyecto sigue la siguiente organización de carpetas y archivos:
 **data_limpios/** → Archivos procesados listos para Power BI  
 **src/** → Código fuente en Python para limpieza y transformación  
 **jupyters/** → Notebooks para análisis exploratorio  
-**documentación/** → Archivo de trabajo  
+**documentación/** → Documentacion_proyecto.docx → Explicación detallada del flujo de trabajo y análisis de datos e Informe_de_Analisis.docx → Resumen final con hallazgos y recomendaciones.
 `.gitignore` → Archivos que no se deben subir al repositorio  
 `README.md` → Documento con la descripción del proyecto  
 `requirements.txt` → Lista de librerías necesarias  
+**Analisis_y_Dashboard.pbix** → Archivo de Power BI con todas las visualizaciones y análisis creados.
 
 ## Segunda Sesión
 ### ETL - Preeliminar
@@ -347,10 +348,14 @@ Este documento detalla todos los pasos realizados en **Power BI** hasta el momen
  **Productos con Mayor Ingreso (Ranking por ventas totales en dólares)**  
    - **Apricots - Dried y Yoghurt Tubes** generan los mayores ingresos.  
    - Algunos productos con menos unidades vendidas **tienen precios altos y generan más ingresos**.  
+ **Frecuencia de Compra por Mes**  
+   - Se analizó la compra mensual en lugar de diaria u horaria, debido a la falta de variación significativa en esos períodos más cortos.  
+   - Se detectaron **diferencias de comportamiento de compra entre los meses**, lo que puede ayudar en la planificación de promociones y estrategias de ventas estacionales.  
 ###  Hallazgos Clave  
 **Diferenciar entre volumen de ventas e ingresos es clave para definir estrategias comerciales.**  
 **Se necesita analizar márgenes de ganancia por producto para identificar oportunidades de optimización.**  
 **Es importante considerar descuentos y promociones estratégicas para mejorar rentabilidad.**  
+**El análisis mensual de compras puede ayudar a optimizar estrategias de ventas según la demanda estacional.**
 ---
 
 ##  Hoja 2: Categoría / Producto  
@@ -383,6 +388,71 @@ Este documento detalla todos los pasos realizados en **Power BI** hasta el momen
  **El segmento de menor consumo es una oportunidad** → Se pueden incentivar compras recurrentes con promociones.  
  **Análisis geográfico** → Evaluar si la baja presencia en ciertas regiones es una limitación o una oportunidad de expansión.  isis geográfico puede ayudar a definir estrategias de crecimiento en ubicaciones estratégicas.**  
 ---
+## Sexta Sesión
+## Hoja 4: Vendedores  
+### Análisis Realizado  
+**Vendedores con Mayor % de Ventas**  
+   - **Devon Brewer (4.39%)** y **Julie Dyer (4.38%)** lideran en participación de ventas.  
+   - Hay una diferencia mínima entre los mejores vendedores, lo que indica una distribución pareja en la fuerza de ventas.  
+**Distribución de Empleados por Género**  
+   - **65.22% de los empleados son hombres y 34.78% mujeres**.  
+   - En los niveles **Senior**, los hombres representan el **47.83%**, mientras que en **Mid-Level** hay mayor equilibrio.  
+**Edad y Años de Experiencia por Género**  
+   - **Edad promedio**: Mujeres **59 años**, Hombres **56 años**.  
+   - **Años trabajados promedio**: Mujeres **12.38 años**, Hombres **11.60 años**.  
+**No hay empleados en la categoría Junior**, lo que sugiere que el equipo está compuesto por personal con más de 10 años de experiencia.  
+
+## Septima Sesión
+## Hoja 5: Dashboard  
+### Análisis Realizado  
+**Resumen General**  
+El dashboard consolidado muestra los **KPIs más importantes** para analizar el rendimiento global del negocio, segmentando los datos por ventas, clientes, productos y tendencias clave.  
+
+### **Indicadores Clave**  
+**Ventas Totales**  
+   - **$4.02 billones** en ventas totales.  
+   - Se observa una **concentración alta en ciertos productos y clientes VIP**.  
+**Total de Productos Vendidos**  
+   - **87 millones de unidades** comercializadas.  
+   - La **rentabilidad no siempre está alineada** con el volumen de productos vendidos.  
+**Ticket Promedio de Compra**  
+   - **$40.67 mil**, lo que indica que la estrategia de precios está **orientada a productos de margen medio-alto**.  
+**Número Total de Clientes**  
+   - **98.76 mil clientes activos**, con predominancia de **clientes regulares**.  
+   - **Segmentación por Cliente VIP (17.2%)**, quienes generan **76.42% del total de ingresos**.  
+**Total de Transacciones**  
+   - **6.69 millones de transacciones** en total.  
+   - Se observa una diferencia significativa en la cantidad de transacciones entre clientes regulares y ocasionales.  
+### **Análisis de Productos y Categorías**  
+**Productos Más Vendidos**  
+   - **Longos - Chicken Wings ($197.81M)** y **Yoghurt Tubes ($197.57M)** lideran en volumen de ventas.  
+   - Algunos productos de **alto precio unitario** generan **mayor rentabilidad con menor volumen**.  
+**Productos con Mayor Ingreso**  
+   - Los productos con **mayor ganancia** no necesariamente coinciden con los más vendidos.  
+   - **Apricots - Dried y Yoghurt Tubes** aparecen como los productos más rentables.  
+**Ventas Totales por Categoría**  
+   - **Confections y Meat** generan la mayor parte de los ingresos.  
+   - **Shellfish y Grain** tienen menor impacto en las ventas totales.  
+### **Análisis de Clientes y Segmentación**  
+**Distribución de Clientes por Tipo**  
+   - **76.42% del ingreso proviene de clientes VIP**, aunque representan solo **17.2% del total**.  
+   - **Los clientes ocasionales tienen menor impacto** en el negocio.  
+**Distribución Geográfica**  
+   - Mayor presencia en **Norteamérica y Europa**.  
+   - Baja penetración en **África y América del Sur**, lo que podría ser una **oportunidad de expansión**.  
+**Segmentación por Género**  
+   - **65.22% hombres, 34.78% mujeres** en la fuerza laboral.  
+   - Diferencia notable en **edad y antigüedad laboral entre géneros**.  
+### **Tendencias y Estacionalidad**  
+**Meses con Mayor Venta**  
+   - **Enero y marzo** muestran los **picos más altos de ventas**.  
+   - **Mayo tiene la menor actividad comercial**, lo que sugiere oportunidad de **mejorar campañas estacionales**.  
+### **Filtros Aplicados**  
+Para permitir un **análisis dinámico**, se incorporaron los siguientes **segmentadores de datos**:  
+**Tipo de Cliente** (Regular, VIP, Ocasional).  
+**Mes de Compra** (Para evaluar **tendencias estacionales**).  
+**Género** (Para segmentación del equipo de ventas y clientes).  
+**Categoría de Producto** (Para identificar **qué categorías impulsan las ventas**).  
 
 ## Organización de Medidas en Power BI  
 Para mejorar la accesibilidad dentro de Power BI, las medidas fueron organizadas en **subcarpetas**:  
@@ -401,22 +471,16 @@ Para mejorar la accesibilidad dentro de Power BI, las medidas fueron organizadas
    - **Ventas por Categoría**  
    - **Ventas por Producto**  
    - **Comparación de Precio Unitario vs Total Price**  
+ **Vendedores**  
+   - **% de Ventas por Vendedor** 
+   - **% de Empleados por Género**
+   - **% de Categoría por Género** 
+   - **Edad Promedio por Género** 
+   - **Años Trabajados por Género** 
 
 📌 **Beneficios de la Organización**  
 🔹 **Permite una búsqueda rápida y eficiente de medidas en Power BI.**  
 🔹 **Reduce el desorden en el modelo de datos y mejora la estructura del análisis.**  
 
 ---
-
-## 🔜 Próximos Pasos  
-📌 **Optimización del dashboard para mejorar la experiencia visual.**  
-📌 **Análisis de la rentabilidad de clientes y estrategias de fidelización.**  
-📌 **Incorporación de filtros dinámicos para segmentación más detallada.**  
-
-🔎 **Estado del Proyecto:**  
-✅ **ETL completada en Power Query (Limpieza y Transformación).**  
-✅ **Modelo de Datos estructurado con relaciones correctas.**  
-✅ **Medidas organizadas en subcarpetas para mejor accesibilidad.**  
-📊 **Dashboards en desarrollo con métricas clave.**  
-
-🚀 **Próxima fase: Optimización del análisis de clientes y presentación final en Power BI.**  
+Con este README, se documenta el análisis final del **Dashboard**, resaltando los **insights clave y tendencias** del negocio. 🚀📊
